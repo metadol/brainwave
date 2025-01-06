@@ -1,14 +1,13 @@
 import ButtonGradient from './assets/svg/ButtonGradient'
 import Button from './components/Button'
+import Header from './components/Header'
+import Section from './components/Section'
 
 const App = () => {
   return (
     <>
-      <h1 className="text-3xl">Heading</h1>
       <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
-        <Button className="mt-20" href="#login">
-          Something
-        </Button>
+        <Header />
         <ButtonGradient />
       </div>
 
