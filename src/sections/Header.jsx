@@ -3,9 +3,9 @@ import { disablePageScroll, enablePageScroll } from "scroll-lock";
 
 import { brainwave } from "../assets";
 import { navigation } from "../constants";
-import Button from "./Button";
+import Button from "../components/Button";
 import MenuSvg from "../assets/svg/MenuSvg";
-import { HamburgerMenu } from "./design/Header";
+import { HamburgerMenu } from "../components/design/Header";
 import { useState } from "react";
 
 const Header = () => {
