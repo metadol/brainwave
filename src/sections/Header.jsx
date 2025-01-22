@@ -44,7 +44,7 @@ const Header = () => {
 
                 <nav
                     className={`${openNavigation ? "flex" : "hidden"
-                        } fixed top-[5rem] left-0 right-0 bottom-0 bg-n-8 lg:static lg:flex lg:mx-auto lg:bg-transparent`}
+                        } fixed top-[4rem] lg:top-[6rem] left-0 right-0 bottom-0 bg-n-8 lg:static lg:flex lg:mx-auto lg:bg-transparent`}
                 >
                     {/* lg-flex overrides the hideen in large screens irrespective of openNavigation */}
                     <div className="relative flex flex-col items-center justify-center m-auto z-2 lg:flex-row">
