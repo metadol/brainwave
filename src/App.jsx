@@ -4,6 +4,7 @@ import Benefits from './sections/Benefits'
 import Collaboration from './sections/Collaboration'
 import Header from './sections/Header'
 import Hero from './sections/Hero'
+import Services from './sections/Services'
 
 const App = () => {
   return (
@@ -12,7 +13,8 @@ const App = () => {
         <Header />
         <Hero />
         <Benefits />
-        <Collaboration />
+        {/* <Collaboration /> */}
+        <Services />
       </div>
 
       <ButtonGradient />
