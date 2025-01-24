@@ -6,7 +6,7 @@ import { navigation } from "../constants";
 import Button from "../components/Button";
 import MenuSvg from "../assets/svg/MenuSvg";
 import { HamburgerMenu } from "../components/design/Header";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Header = () => {
     const pathname = useLocation();
@@ -32,6 +32,43 @@ const Header = () => {
         setOpenNavigation(false);
     };
 
+
+
+    const [activeSection, setActiveSection] = useState("");
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY + window.innerHeight / 2;
+            let found = false;
+
+            navigation.forEach((item) => {
+                const section = document.querySelector(item.url);
+                if (section) {
+                    const { offsetTop, offsetHeight } = section;
+                    if (
+                        scrollPosition >= offsetTop &&
+                        scrollPosition < offsetTop + offsetHeight
+                    ) {
+                        setActiveSection(item.url.replace("#", ""));
+                        found = true;
+                    }
+                }
+            });
+
+            // If no section matches, reset activeSection to null
+            if (!found) {
+                setActiveSection(null);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        handleScroll(); // Initialize on load
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [navigation]);
+
+
+
     return (
         <div
             className={`fixed top-0 left-0 w-full z-50  border-b border-n-6 lg:bg-n-8/90 lg:backdrop-blur-sm ${openNavigation ? "bg-n-8" : "bg-n-8/90 backdrop-blur-sm"
@@ -54,7 +91,9 @@ const Header = () => {
                                 href={item.url}
                                 onClick={handleClick}
                                 className={`block relative font-code text-2xl uppercase text-n-1 transition-colors hover:text-color-1 ${item.onlyMobile ? "lg:hidden" : ""
-                                    } px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold ${item.url === pathname.hash
+                                    } px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold ${
+                                    // item.url === pathname.hash
+                                    activeSection === item.url.replace("#", "")
                                         ? "z-2 lg:text-n-1"
                                         : "lg:text-n-1/50"
                                     } lg:leading-5 lg:hover:text-n-1 xl:px-12`}
