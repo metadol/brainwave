@@ -8,7 +8,7 @@ import { check, service1, service2, service3 } from '../assets'
 
 const Services = () => {
     return (
-        <Section id="how-to-use">
+        <Section id="how-to-use" crosses>
             <div className="container">
                 <Heading
                     title="Generative AI made for creators."

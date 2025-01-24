@@ -17,9 +17,15 @@
   scroll-behavior: smooth;
 }
 
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
 @layer base {
   body {
-    @apply font-sans bg-n-8 text-n-1 text-base;
+    @apply font-sans text-base bg-n-8 text-n-1;
   }
 }
 
