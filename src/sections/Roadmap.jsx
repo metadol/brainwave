@@ -1,10 +1,6 @@
 import Button from "../components/Button";
 import Heading from "../components/Heading";
 import Section from "../components/Section";
-import { roadmap } from "../constants";
-import { check2, grid, loading1 } from "../assets";
-import { Gradient } from "../components/design/Roadmap";
-import TagLine from "../components/Tagline";
 import RoadmapCard from "../components/RoadmapCard";
 
 const Roadmap = () => (
